@@ -1,0 +1,7 @@
+body {
+    background-image: url("../img/ground.png");
+}
+p {
+    width: 600px;
+    font-family: Verdana;
+}
