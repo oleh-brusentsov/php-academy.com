@@ -1,7 +1,30 @@
 body {
-    background-image: url("../img/ground.png");
+    margin: 0;
+    background: url("../img/ground.png");
+    font-family: Open Sans, Arial, serif;
+    font-size: 14px;
+    color: #8c8c8c;
 }
-p {
-    width: 600px;
-    font-family: Verdana;
+a {
+    color: #98c3cd;
+}
+header {
+    background: url("../img/header_bg.jpg") repeat-x;
+}
+header .header-block {
+    height: 139px;
+    padding-left: 20px;
+}
+header .header-block img {
+    position: relative;
+    top: 30px;
+}
+header .header-block p {
+    position: relative;
+    top: 20px;
+    width: 450px;
+}
+h1 {
+    color: #8B4513;
+    font-size: 16px;
 }
