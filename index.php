@@ -13,6 +13,17 @@
     </div>
 </header>
 <div><h1>О проекте: </h1></div>
-<footer></footer>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-block">
+        <div class="footer-content">Использование любых материалов, размещенных на сайте, разрешается при условии согласования. Перепечатка, копирование, воспроизведение или иное использование материалов строго запрещены.</div>
+        <div class="footer-social-links">
+            <a href="http://www.vk.com" target="_blank"><img src="img/vk.png"></a>
+            <a href="http://www.facebook.com" target="_blank"><img src="img/facebook.png"></a>
+            <a href="http://www.linkedin.com.com" target="_blank"><img src="img/linkedin.png"></a>
+        </div>
+</footer>
+
 </body>
 </html>

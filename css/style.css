@@ -32,3 +32,22 @@ h1 {
     padding-left: 20px;
 }
 
+/* FOOTER */
+footer {
+    background: url("../img/header_bg.jpg") repeat-x;
+}
+footer .footer-block {
+    height: 50px;
+}
+div .footer-content {
+    position: relative;
+    width: 800px;
+    float: left;
+    padding: 5px;
+    text-align: left;
+}
+div .footer-social-links {
+    position: relative;
+    float: right;
+    padding: 5px;
+}
