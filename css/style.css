@@ -1,7 +1,7 @@
 body {
     margin: 0;
     background: url("../img/ground.png");
-    font-family: Open Sans, Arial, serif;
+    font-family: "Open Sans", "Trebuchet MS", "Helvetica Neue", Helvetica,Arial,sans-serifArial, serif;
     font-size: 14px;
     color: #8c8c8c;
 }
@@ -22,9 +22,13 @@ header .header-block img {
 header .header-block p {
     position: relative;
     top: 20px;
-    width: 450px;
+    width: 480px;
 }
 h1 {
-    color: #8B4513;
-    font-size: 16px;
+    font-family: Arial, sans-serifArial, serif;
+    font-size: 15px;
+    text-decoration: inherit;
+    color: #0086b3;
+    padding-left: 20px;
 }
+
