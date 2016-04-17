@@ -3,13 +3,14 @@ body {
     background: url("../img/ground.png");
     font-family: "Open Sans", "Trebuchet MS", "Helvetica Neue", Helvetica,Arial,sans-serifArial, serif;
     font-size: 14px;
-    color: #8c8c8c;
+    color: #1f1f1f;
 }
 a {
     color: #98c3cd;
 }
 header {
     background: url("../img/header_bg.jpg") repeat-x;
+    color: #8c8c8c;
 }
 header .header-block {
     height: 139px;
@@ -25,7 +26,7 @@ header .header-block p {
     width: 480px;
 }
 h1 {
-    font-family: Arial, sans-serifArial, serif;
+    font-family: "Open Sans", "Trebuchet MS", "Helvetica Neue", Helvetica,Arial,sans-serifArial, serif;
     font-size: 15px;
     text-decoration: inherit;
     color: #0086b3;
@@ -35,6 +36,7 @@ h1 {
 /* FOOTER */
 footer {
     background: url("../img/header_bg.jpg") repeat-x;
+    color: #8c8c8c;
 }
 footer .footer-block {
     height: 50px;

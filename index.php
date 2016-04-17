@@ -7,12 +7,22 @@
     <link rel="icon" href="img/favicon.png">
 </head>
 <body>
+
+<!-- HEADER -->
 <header>
     <div class="header-block"><a href="http://php-academy.com"><img src="img/logo.png"/></a>
         <p>Обучение в школе програмирование <a href="http://php-academy.kiev.ua" target="_blank">php-academy.kiev.ua</a>. Впечатления и разочарования от посещения курса: <b>PHP интенсив 2 мес.</b></p>
     </div>
 </header>
+
+<!-- CONTENT -->
 <div><h1>О проекте: </h1></div>
+Бла бла бла бла...
+<ul>
+    <li><a href="lessons/01/lesson_01.html">Занятие №1</a></li>
+    <li><a href="lessons/02/lesson_02.html">Занятие №2</a></li>
+    <li><a href="lessons/03/lesson_03.html">Занятие №3</a></li>
+</ul>
 
 <!-- FOOTER -->
 <footer>

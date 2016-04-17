@@ -1,0 +1,86 @@
+<!-- Создать html страницу о себе, в которой будут использованы следующие теги:
+- теги форматирования текста(strong, b, i, u);
+- теги заголовков (h1, h2 ...);
+- упорядоченные списки (ol / li), неупорядоченные списки (ol / li);
+- теги таблицы (table);
+- изображения;
+- ссылки(a) - причем часть ссылок должно открываться в новом окне; -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница о себе</title>
+    <link rel="stylesheet" href="stylenew.css">
+
+</head>
+
+<body>
+
+         <table border="5" rules="all" style="background-color: lightgray">
+             <tr>
+                 <td rowspan="6"><img src="https://upload.wikimedia.org/wikipedia/ru/b/b6/Logo_Volia.jpg" style="height: 186px; width: 250px;">
+                 </td>
+                 <td rowspan="6">
+                     <h1>Sergey Kovalenko</h1>
+                     <h2>Top specialist in company "Volia"</h2>
+                 </td>
+                 <td>Name:</td>
+                 <td>Sergey Kovalenko</td>
+             </tr>
+             <tr>
+                 <td>Date of birth:</td>
+                 <td>July 31, 1989</td>
+             </tr>
+             <tr>
+                 <td>Address:</td>
+                 <td>Ukraine, Kyiv, Magnitogorska str, 1</td>
+             </tr>
+             <tr>
+                 <td>Email:</td>
+                 <td>serhii.kovalenko@volia.com</td>
+             </tr>
+             <tr>
+                 <td>Phone:</td>
+                 <td>+380 50 448 99 10<br>+380 63 231 67 93</td>
+             </tr>
+             <tr>
+                 <td>Social profile:</td>
+                 <td>
+                     <a href="https://vk.com/id9005795" target="_blank"><img src="http://prometheus.org.ua/wp-content/uploads/2014/10/загруженное-18.png" style="height: 20px; width: 20px;"></a>
+                     <a href="https://www.facebook.com/profile.php?id=100004978188795&ref=bookmarks" target="_blank"><img src="http://prometheus.org.ua/wp-content/uploads/2014/10/загруженное-19.png" style="height: 20px; width: 20px;"></a>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="4"><strong><u>Employment:</u></strong>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="4">
+                     <ul>
+                         <li><b>Volia</b> (Telecommunications service provider)</li>
+                         <i>Position: Top specialist in company "Volia"</i>
+                         <ol>
+                             <li>Control outsourced call centers</li>
+                             <li>Without of implementation and management of projects</li>
+                             <li>Reporting, analytics and On-line monitoring work of call - center</li>
+                             <li>All other issues related to outsourced Call-Centers"</li>
+                         </ol>
+                     </ul>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="4"><strong><u>Education:</u></strong>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="4">
+                     <ul>
+                         <li><b>Interregional Center of jewelry Kiev</b></li>
+                         <i>Received a complete secondary education and specialty "Jeweler"</i>
+                     </ul>
+                 </td>
+             </tr>
+          </table>
+</body>
+</html>
