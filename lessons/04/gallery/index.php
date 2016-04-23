@@ -14,7 +14,6 @@
     .imageWrapper img:hover{
         background-color: #8c8c8c;
         border: 1px solid #000;
-    }
 </style>
 <form method="POST">
     <select name="sorting">
@@ -26,7 +25,7 @@
 <?php
 define('GALLERY_FOLDER', __DIR__ . '\images\\');
 $allowedType = array('image/png');
-$imageSize = 4645500;
+$imageSize = 400*1024;
 
 
 // удаление фото
@@ -42,18 +41,16 @@ if (isset($_FILES['image']) && $_FILES['image']['name']) {
     if (in_array($_FILES['image']['type'], $allowedType)) {
         if ($_FILES['image']['size'] <= $imageSize) {
             move_uploaded_file($_FILES['image']['tmp_name'], GALLERY_FOLDER . $_FILES['image']['name']);
-            echo "Your foto are added!";
+            echo "Фото успешно добавлено!";
         }
         else {
-            echo "Your foto is very big!";
+            echo "Фото превышает максимально допустимый размер!!";
         }
     }
     else {
         echo "Фото имеет другой формат!";
     }
 }
-
-var_dump($_FILES);
 
 
 $filesList = scandir(GALLERY_FOLDER);
@@ -74,19 +71,15 @@ if (isset($_POST['sorting']) && $_POST['sorting']) {
     }
 }
 
-
 foreach ($filesNamesSize as $name => $size) {
     if ($name == '.' || $name == '..') continue ?>
-
-    <div class='imageWrapper'>
-        <a href="http://php-academy.com/lessons/04/gallery/images/<?=$name?>" target="_blank">
-            <img src='http://php-academy.com/lessons/04/gallery/images/<?=$name?>' title="Название: <?=$name?>.&#013;Дата создания: <?=date("F d Y H:i:s.", filectime(GALLERY_FOLDER . $name))?>.&#013;Размер файла: <?=$size/1024 . ' Кб'?>">
-        </a>
-        <form>
-            <input type="hidden" name="delete_img" value="<?=$name?>">
-            <input type="image" src="/img/delete.png" formmethod="post">
-        </form>
-    </div>
+        <div class='imageWrapper'>
+            <a href="http://php-academy.com/lessons/04/gallery/images/<?=$name?>" target="_blank"><img src='http://php-academy.com/lessons/04/gallery/images/<?=$name?>' title="Название: <?=$name?>&#013;Дата создания: <?=date("d-m-Y H:i:s", filectime(GALLERY_FOLDER . $name))?>&#013;Размер файла: <?=round($size/1024, 2) . ' Кб'?>"></a>
+            <form>
+                <input type="hidden" name="delete_img" value="<?=$name?>"><br>
+                <input type="image" src="/img/delete.png" formmethod="post">
+            </form>
+        </div>
     <?php } ?>
 <div style="clear: both;"></div>
 <br>
