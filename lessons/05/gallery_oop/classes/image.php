@@ -31,31 +31,46 @@ class image
     }
 
     // удаление фото
-    public function imgDelete (array $imageName) {
+    public function imgDelete(array $imageName)
+    {
         if (isset($imageName['delete_img']) && $imageName['delete_img'] && file_exists(GALLERY_FOLDER . $imageName['delete_img'])) {
             return unlink(GALLERY_FOLDER . $imageName['delete_img']);
-        }
-        else {
+        } else {
             return false;
         }
     }
 
     // получаем все файлы из директории
-    public function getImagesNameVsSize ()
+    public function getImages()
     {
         $filesList = scandir(GALLERY_FOLDER);
-        $filesNameVsSize = array();
-        foreach ($filesList as $fileName) {
-            if ($fileName == '.' || $fileName == '..') continue;
+        $newFilesList = array();
+        foreach ($filesList as $imageName) {
+            if ($imageName == '.' || $imageName == '..') continue;
 
-            $filesNameVsSize[$fileName] = filesize(GALLERY_FOLDER . $fileName);
+            $newFilesList[] = $imageName;
         }
-        return $filesNameVsSize;
+        return $newFilesList;
     }
 
-    public function imagesSort (array $actionSort, array $filesNameVsSize) {
-        if ($actionSort['sorting'] == 'for_name') return ksort($filesNameVsSize);
-        elseif ($actionSort['sorting'] == 'for_size') return asort($filesNameVsSize);
-        else return false;
+    public function sortForName()
+    {
+        $sortForNames = $this->getImages();
+        asort($sortForNames);
+        return $sortForNames;
+    }
+
+    public function sortForSize()
+    {
+        $filesList = $this->getImages();
+        $sortForSize = array();
+        foreach ($filesList as $imageName) {
+            $sortForSize[$imageName] = filesize(GALLERY_FOLDER . $imageName);;
+        }
+        asort($sortForSize);
+        $sortForSize = array_flip($sortForSize);
+        $sortForSize = array_values($sortForSize);
+
+        return $sortForSize;
     }
 }
