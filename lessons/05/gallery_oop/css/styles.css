@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+}
+.center {
+    width: 50%;
+    padding: 10px;
+    margin: auto;
+    background: #fc0;
+}
+.sortForm {
+    position: relative;
+    padding: 5px;
+    max-height: 20px;
+}
+.galleryBlock {
+    width: 100%;
+    padding: 5px;
+}
+.imageWrapper {
+    width: 120px;
+    float: left;
+    text-align: center;
+}
+.imageWrapper img{
+    max-width: 100px;
+    max-height: 100px;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #8c8c8c;
+}
+.imageWrapper img:hover {
+    background-color: #8c8c8c;
+    border: 1px solid #000;
+}
+.deleteButton {
+    font-size: 13px;
+    color: chocolate;
+    font-family: "Open Sans", "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serifArial, serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+.deleteButton:hover {
+    text-decoration: underline;
+}
+.signIn {
+    padding: 5px;
+    border: 1px solid darkgoldenrod;
+    background-color: aliceblue;
+}
+.addImage {
+    padding: 10px;
+    border: 1px solid darkgoldenrod;
+    background-color: aliceblue;
+}
+

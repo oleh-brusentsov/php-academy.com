@@ -10,16 +10,11 @@ $user = new galleryUser();
 if (isset($_POST['action']) && $_POST['action'] == 'login') {
     $loginResult = $user->login($_POST['login'], $_POST['password']);
     if ($loginResult) {
-        $deleteImage = "<a href='?delete_img=<?=$name?>'>Удалить изображение</a>";
-        echo "Привет, $_SESSION[name]";
+        $loginMessage = "Добро пожаловать, {$_SESSION['name']}";
     }
     else {
-        echo 'Incorrect login or password';
+        $loginMessage = 'Incorrect login or password';
     }
-}
-
-if ($user->isLogged()) {
-    $deleteImage = "<a href='?delete_img=<?=$name?>'>Удалить изображение</a>";
 }
 
 // добавление фото
@@ -59,58 +54,60 @@ if (isset($_POST['sorting']) && $_POST['sorting']) {
     }
 }
 ?>
-<style>
-    .imageWrapper {
-        width: 120px;
-        height: 120px;
-        float: left;
-    }
-    .imageWrapper img{
-        max-width: 100px;
-        max-height: 100px;
-        padding: 5px;
-        background-color: #fff;
-        border: 1px solid #8c8c8c;
-    }
-    .imageWrapper img:hover{
-        background-color: #8c8c8c;
-        border: 1px solid #000;
-</style>
-<form method="POST">
-    <label for="sorting"></label>
-    <select name="sorting" id="sorting">
-        <option value="for_name" <?php echo ($_POST['sorting'] == 'for_name') ? 'selected' : ''?>>По имени</option>
-        <option value="for_size" <?php echo ($_POST['sorting'] == 'for_size') ? 'selected' : ''?>>По размеру</option>
-    </select>
-    <input type="submit" value="Сортировать">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="css/styles.css" rel="stylesheet">
+    <title>Галерея изображений</title>
+</head>
+<body>
+<div class="center">
+    <?php echo $loginMessage ?>
+    <div class="signIn" <?php if ($user->isLogged()) echo "hidden" ?>>
+        <form method="POST">
+            <input type="hidden" name="action" value="login">
 
-<?php
-foreach ($imagesList as $name) { ?>
- <div class='imageWrapper'>
-    <a href="http://php-academy.com/lessons/05/gallery_oop/images/<?=$name?>" target="_blank">
-        <img src='http://php-academy.com/lessons/05/gallery_oop/images/<?=$name?>' title="Название: <?=$name?>&#013;Дата создания: <?=date("d-m-Y H:i:s", filectime(GALLERY_FOLDER . $name))?>&#013;Размер файла: <?=round(filesize(GALLERY_FOLDER . $name)/1024, 2) . ' Кб'?>">
-    </a>
-     <?php echo $deleteImage?>
+            <label for="login">Ваш логин: </label>
+            <input type="text" name="login" id="login">
+
+            <label for="password">Ваш пароль: </label>
+            <input type="password" name="password" id="password">
+
+            <input type="submit" value="Войти">
+        </form>
+    </div>
+    <div class="sortForm">
+        <form method="POST">
+            <label for="sorting"></label>
+            <select name="sorting" id="sorting">
+                <option value="for_name" <?php echo ($_POST['sorting'] == 'for_name') ? 'selected' : ''?>>По имени</option>
+                <option value="for_size" <?php echo ($_POST['sorting'] == 'for_size') ? 'selected' : ''?>>По размеру</option>
+            </select>
+            <input type="submit" value="Сортировать">
+        </form>
+    </div>
+    <div class="galleryBlock">
+        <?php
+        foreach ($imagesList as $name) { ?>
+        <div class='imageWrapper'>
+            <a href="http://php-academy.com/lessons/05/gallery_oop/images/<?=$name?>" target="_blank">
+                <img src='http://php-academy.com/lessons/05/gallery_oop/images/<?=$name?>' title="Название: <?=$name?>&#013;Дата создания: <?=date("d-m-Y H:i:s", filectime(GALLERY_FOLDER . $name))?>&#013;Размер файла: <?=round(filesize(GALLERY_FOLDER . $name)/1024, 2) . ' Кб'?>">
+            </a>
+            <?php if ($user->isLogged()) echo "<a href='?delete_img={$name}' class='deleteButton'>Delete Image</a>" ?>
+        </div>
+        <?php } ?>
+    </div>
+    <div style="clear: both;"></div>
+    <div style="clear: both;"></div>
+    <div class="addImage" <?php if (!$user->isLogged()) echo "hidden" ?>>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" id="image" accept="image/jpeg, image/png">
+
+            <input type="submit" value="Add New Image">
+        </form>
+    </div>
 </div>
-<?php } ?>
-<div style="clear: both;"></div>
-<br>
-<form method="POST">
-    <input type="hidden" name="action" value="login">
+</body>
+</html>
 
-    <label for="login">Ваш логин: </label>
-    <input type="text" name="login" id="login">
-    <div style="clear: both;"></div>
-
-    <label for="password">Ваш пароль: </label>
-    <input type="password" name="password" id="password">
-    <div style="clear: both;"></div>
-
-    <input type="submit" value="Войти">
-</form>
-<form method="POST" enctype="multipart/form-data">
-    <input type="file" name="image" id="image" accept="image/jpeg, image/png">
-
-    <input type="submit" value="Добавить новое фото">
-</form>
